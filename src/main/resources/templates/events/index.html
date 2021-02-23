@@ -3,13 +3,15 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
-<header th:replace="fragments :: header"></header>
+<header class ="dope-header" th:replace="fragments :: header"></header>
 
-<ul>
+
     <th:block th:each="event : ${events}">
-        <li th:text="${event}"></li>
+        <h3 th:text="${event.name}"></h3>
+        <p th:text="${event.description}"></p>
+        <a th:href="@{/events/edit/{id} (id=${event.id})}">Edit</a>
     </th:block>
-</ul>
+
 
 </body>
 </html>
